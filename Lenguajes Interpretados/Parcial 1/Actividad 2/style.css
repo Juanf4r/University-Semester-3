@@ -1,9 +1,13 @@
+*{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+
 .encabezado{
     text-align: center;
+    
 }
 
 .cuadradoVerde{
     width: 400px;
+    font-size: small;
     height: 250px;
     padding-left: 25px;
     padding: 20px;
@@ -15,3 +19,13 @@
 .fraseRojo{
     color: red ;
 }
+
+.cuadradoMorado{
+    width: 400px;
+    height: 250px;
+    float: left; 
+    padding: 20px;
+    background-color: #483d8b;
+    border: 3px solid;
+}
+
