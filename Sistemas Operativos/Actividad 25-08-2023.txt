@@ -1,0 +1,45 @@
+import time
+from multiprocessing import Process
+
+def sumar(*args):
+    res = 0
+    for x in args:
+        res+=x
+    print(res)
+    time.sleep(2000)
+    return res
+
+def restar(*args):
+    res = 0
+    for x in args:
+        res-=x
+    print(res)
+    return res
+
+def multiplicar(*args):
+    res = 0
+    for x in args:
+        res*=x
+    print(res)
+    return res
+
+def dividir(*args):
+    res = 0
+    for x in args:
+        res/=x
+    print(res)
+    return res
+
+if __name__=='__main__':
+    p1=Process(target=sumar,args=(3,4,5))
+    p2=Process(target=restar,args=(100,20,5))
+    p3=Process(target=multiplicar,args=(5,5,5))
+    p4=Process(target=dividir,args=(20,10))
+    p1.start()
+    p2.start()
+    p3.start()
+    p4.start()
+    p1.join()
+    p2.join()
+    p3.join()
+    p4.join()
