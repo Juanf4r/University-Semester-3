@@ -8,30 +8,31 @@
     <script defer src="holamundo.js"></script>
 </head>
 <body>
-
-    <form action="">
+    <form>
         <fieldset>  
             <legend>Datos Iniciales</legend>
             <p>
-                <label for="">Nombre:</label>
-                <input type="text" name=""> <br>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required><br>
             </p>
             <p>   
-                <label for="">Edad:</label>
-                <input type="number" name=""> <br>  
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" required><br> 
             </p>
             <p>
-                <label for="">Dirección:</label>
-                <input type="text" name=""> <br>
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" required><br>
             </p> 
             <p>
                 <label for="">Te gusta el Jaztea?</label>
-                <input type="checkbox" name=""> <br>
+                <input type="checkbox" id="verdadero"><br>
             </p>
-                <button id="btn-añadir">Añadir</button>
-            
+                <button type="button" onclick="agregarPersona()">Añadir</button>
+            </p>
         </fieldset>
     </form>
+
+    <div id="resultado"></div>
     
 </body>
 </html>
