@@ -1,0 +1,24 @@
+:root{
+    --blanco: #ffffff;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+.html{
+    font-size: 62.5%;
+}
+
+.body{
+    font-size: 16px; /* 1rem = 10px */
+}
+
+.titulo{
+    font-size: 3.8rem;
+    text-align: center;
+}
+
+.navegacion-principal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
