@@ -1,29 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tienda</title>
-        <link rel="preload" href="css/normalize.css" as="style">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
-        <link rel="preload" href="style.css" as="style">
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuanFer Aispuro Pagina Web</title>
+    
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/style.css" as="style">
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
     <body>
-        <br>
         <div class="nav-bg">
             <nav class="navegacion-principal contenedor">
                 <a href="#">Inicio</a>
-                <a href="#">Ventas</a>
-                <a href="#">Ubicación</a>
+                <a href="#">Tienda</a>
+                <a href="#">Contacto</a>
                 <a href="#">Juego Secreto</a>
             </nav>
         </div>
-        <br><br>
 
-        <header class="titulo">SERYGRAF</header>
+        <section class="hero">
+            <div class="contenido-hero">
+                <h2 class="titulo">SERYGRAF</h2>
+                <p></p>
+            </div>  
+        </section>
 
+        <section class="Contacto">
+            <h2>Contactanos</h2>
+                <form>
+                    <fieldset>
+                        <div>
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Tu Nombre">
+                        </div>
+                        
+                        <div>
+                            <label>Teléfono</label>
+                            <input type="number" placeholder="Tu Teléfono">
+                        </div>
+
+                        <div>
+                            <label>Correo</label>
+                            <input type="email" placeholder="Tu Email">
+                        </div>
+
+                        <div>
+                            <label>Mensaje</label>
+                            <textarea></textarea>
+                        </div>
+                        
+                        <div>
+                            <input type="submit" value="Enviar">
+                        </div>
+
+                    </fieldset>
+                </form>
+        </section>
+
+        <footer>
+            <div class="footer"><p><b>Derechos de Autor. JuanFer Aispuro Sanchez</b></p></div>
+        </footer>   
     </body>
 </html>
