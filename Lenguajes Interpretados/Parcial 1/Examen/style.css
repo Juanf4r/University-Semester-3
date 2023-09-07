@@ -1,5 +1,6 @@
 :root{
     --blanco: #ffffff;
+    --background: #525252;
     font-family: 'Kanit', sans-serif;
 
 }
@@ -19,6 +20,31 @@
 
 .navegacion-principal{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+@media (min-width: 768px ) {
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.nav-bg{
+    background-color: var(--background);
 }
