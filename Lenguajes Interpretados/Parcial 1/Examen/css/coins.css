@@ -1,0 +1,43 @@
+:root{
+  --blanco: #f3f3f5;
+  --oscuro: #362a2e;
+  --secundario: #ff2d16;
+}
+
+body {
+  background: var(--blanco);
+
+}
+
+canvas
+{
+  border: 1px solid black;
+  cursor: none;
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    position: absolute;
+    bottom: 0; 
+    justify-content: center;
+    text-align: center;  
+}
+
+@media (min-width: 768px ) {
+  .boton{
+    width: auto;
+  }
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+}
