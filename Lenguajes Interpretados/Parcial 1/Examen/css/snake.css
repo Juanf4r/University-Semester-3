@@ -1,3 +1,12 @@
+:root{
+  --blanco: #f3f3f5;
+  --oscuro: #362a2e;
+  --primario: #FFC107;
+  --secundario: #ff2d16;
+  --gris: #757575;
+  --grisClaro: #DFE9F3;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 * {
   margin: 0;
@@ -12,6 +21,10 @@ body {
   justify-content: center;
   min-height: 100vh;
   background: #E3F2FD;
+}
+
+.flex{
+  display: flex;
 }
 
 .wrapper {
@@ -66,6 +79,24 @@ body {
   border-right: 1px solid #171B26;
 }
 
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    
+    text-align: center;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
   .wrapper {
     width: 90vmin;
@@ -82,4 +113,21 @@ body {
     padding: 15px 0;
     font-size: 1rem;
   }
+  .Regresar{
+    width: auto;
+  }
+}
+
+@media (min-width: 768px ) {
+  .boton{
+    width: auto;
+  }
+}
+
+.footer{
+  display: flex;
+  columns: reverse;
+  justify-content: center;
+  position: absolute;
+  bottom: 0 ;
 }
