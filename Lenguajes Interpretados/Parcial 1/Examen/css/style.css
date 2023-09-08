@@ -36,8 +36,14 @@ h3{
 h1,h2,h3{
     text-align: center;
 }
+
+p{
+    font-family: 'Heebo', sans-serif;
+}
+
 .titulo{
     font-size: 8rem;
+    font-family: 'Heebo', sans-serif;
 }
 
 .boton{
