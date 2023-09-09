@@ -3,22 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
         <link rel="preload" href="css/normalize.css" as="style">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="preload" href="css/coins.css" as="style">
         <link rel="stylesheet" href="css/coins.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/coins.js"></script>
         <title>Juego de Snake con JavaScript</title>    
     </head>
 
-    <body>
-            <a href="index.html">
-              <boton class ="boton">Regresar</boton> 
-            </a>
+    <body>  
+      <div class="nav-bg">
+        <nav class="navegacion-principal contenedor">
+            <a href="index.html">Regresar</a>
+        </nav>
+    </div>
 
-            <footer>
-              <p class="footer">Derechos de Autor. JuanFer Aispuro Sanchez</p>
-            </footer>
+    <h1>Juego de Lluvia de Monedas</h1>
+    <p>Puntuación: <span id="score">0</span></p>
+    <p>Mejor Puntuación: <span id="highscore">0</span></p>
+    <div id="game-container">
+        <div id="player"></div>
+    </div>
+    <button id="start-button">Comenzar</button>
+    <button id="reset-button" disabled>Reiniciar</button>
+
+        <footer>
+          <p class="footer">Derechos de Autor. JuanFer Aispuro Sanchez</p>
+        </footer>
+          <script src="js/coins.js"></script>
       </body>    
     </html>

@@ -1,18 +1,82 @@
 :root{
   --blanco: #f3f3f5;
-  --oscuro: #362a2e;
-  --secundario: #ff2d16;
+    --oscuro: #362a2e;
+    --primario: #FFC107;
+    --secundario: #ff2d16;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
 }
 
 body {
   background: var(--blanco);
-
+  font-family: 'Roboto', sans-serif;
 }
 
-canvas
-{
-  border: 1px solid black;
-  cursor: none;
+h1 {
+  margin-top: 20px;
+}
+
+#game-container {
+  width: 400px;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin: 20px auto;
+  position: relative;
+}
+
+#player {
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.coin {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  position: absolute;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+button:disabled {
+  color: gray;
+}
+
+.nav-bg{
+  background-color: var(--secundario);
+}
+
+.navegacion-principal{
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor{
+  max-width: 120rem;
+  margin: 0 auto 0 auto;
+}
+
+.navegacion-principal a{
+  display: block;
+  text-align: center;
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.navegacion-principal a:hover{
+  background-color: var(--primario);
+  color: var(--oscuro);
 }
 
 .boton{
@@ -25,15 +89,12 @@ canvas
     text-transform: uppercase;
     font-weight: bold;
     border-radius: .5rem;
-    position: absolute;
-    bottom: 0; 
-    justify-content: center;
-    text-align: center;  
 }
 
 @media (min-width: 768px ) {
-  .boton{
-    width: auto;
+  .navegacion-principal{
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
 
