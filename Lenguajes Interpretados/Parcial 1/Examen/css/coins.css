@@ -1,10 +1,10 @@
 :root{
   --blanco: #f3f3f5;
-    --oscuro: #362a2e;
-    --primario: #FFC107;
-    --secundario: #ff2d16;
-    --gris: #757575;
-    --grisClaro: #DFE9F3;
+  --oscuro: #362a2e;
+  --primario: #FFC107;
+  --secundario: #ff2d16;
+  --gris: #757575;
+  --grisClaro: #DFE9F3;
 }
 
 body {
@@ -14,40 +14,6 @@ body {
 
 h1 {
   margin-top: 20px;
-}
-
-#game-container {
-  width: 400px;
-  height: 400px;
-  background-color: #f0f0f0;
-  margin: 20px auto;
-  position: relative;
-}
-
-#player {
-  width: 40px;
-  height: 40px;
-  background-color: blue;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.coin {
-  width: 20px;
-  height: 20px;
-  background-color: yellow;
-  position: absolute;
-}
-
-button {
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-button:disabled {
-  color: gray;
 }
 
 .nav-bg{

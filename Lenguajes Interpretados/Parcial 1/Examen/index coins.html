@@ -10,7 +10,7 @@
         <link rel="preload" href="css/coins.css" as="style">
         <link rel="stylesheet" href="css/coins.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Juego de Snake con JavaScript</title>    
+        <title>Lluvia de Monedas</title>    
     </head>
 
     <body>  
@@ -20,18 +20,142 @@
         </nav>
     </div>
 
-    <h1>Juego de Lluvia de Monedas</h1>
-    <p>Puntuación: <span id="score">0</span></p>
-    <p>Mejor Puntuación: <span id="highscore">0</span></p>
-    <div id="game-container">
-        <div id="player"></div>
-    </div>
-    <button id="start-button">Comenzar</button>
-    <button id="reset-button" disabled>Reiniciar</button>
+    <h1>Lluvia de Monedas</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <p>Puntuaje: <span id="score">0</span></p>
+    <p>Maximo Puntaje: <span id="highScore">0</span></p>
+    <p>Tiempo Restante: <span id="time">10</span></p>
+    <button id="startButton">Comenzar Juego</button>
+    <button id="pauseButton">Pausar Juego</button>
+    <button id="resetButton">Reiniciar Juego</button>
 
-        <footer>
-          <p class="footer">Derechos de Autor. JuanFer Aispuro Sanchez</p>
-        </footer>
-          <script src="js/coins.js"></script>
-      </body>    
-    </html>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const jugador = { x: canvas.width / 2, y: canvas.height - 30, width: 30, height: 30, speed: 10 };
+        const monedas = [];
+        let score = 0;
+        let highScore = localStorage.getItem("highScore") || 0;
+        let timeLeft = 500;
+        let gameInterval;
+        let gamePaused = false;
+
+        function drawJugador() 
+        {
+            ctx.fillStyle = "blue";
+            ctx.fillRect(jugador.x, jugador.y, jugador.width, jugador.height);
+        }
+
+        function drawMoneda() 
+        {
+            ctx.fillStyle = "gold";
+            monedas.forEach(moneda => 
+            {
+                ctx.fillRect(moneda.x, moneda.y, moneda.width, moneda.height);
+            });
+        }
+
+        function updateScore() 
+        {
+            document.getElementById("score").textContent = score;
+            document.getElementById("highScore").textContent = highScore;
+        }
+
+        function draw() 
+        {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawJugador();
+            drawMoneda();
+
+            if (timeLeft <= 0 || gamePaused) 
+            {
+                clearInterval(gameInterval);
+                if (!gamePaused) 
+                {
+                    alert("Tiempo agotado. Tu puntaje: " + score);
+                }
+                document.getElementById("resetButton").disabled = false;
+                document.getElementById("pauseButton").disabled = true;
+                document.getElementById("startButton").disabled = false;
+            } 
+            else 
+            {
+                monedas.push({ x: Math.random() * (canvas.width - 30), y: Math.random() * -canvas.height, width: 15, height: 15 });
+                monedas.forEach((moneda, index) => 
+                {
+                    moneda.y += 5;
+                    if (moneda.y > canvas.height) 
+                    {
+                        monedas.splice(index, 1);
+                    }
+
+                    if (moneda.x < jugador.x + jugador.width &&
+                        moneda.x + moneda.width > jugador.x &&
+                        moneda.y < jugador.y + jugador.height &&
+                        moneda.y + moneda.height > jugador.y) 
+                        {
+                        monedas.splice(index, 1);
+                        score += 1;
+                        if (score > highScore) 
+                        {
+                            highScore = score;
+                            localStorage.setItem("highScore", highScore);
+                        }
+                    }
+                });
+                updateScore();
+
+                timeLeft -= 1;
+                document.getElementById("time").textContent = timeLeft + " segundos";
+            }
+        }
+
+        function startGame() 
+        {
+            score = 0;
+            timeLeft = 500;
+            monedas.length = 0;
+            document.getElementById("resetButton").disabled = true;
+            document.getElementById("pauseButton").disabled = false;
+            document.getElementById("startButton").disabled = true;
+            gamePaused = false;
+            gameInterval = setInterval(draw, 1000 / 60);
+        }
+
+        function pauseGame() 
+        {
+            if (gamePaused) 
+            {
+                gamePaused = false;
+                document.getElementById("pauseButton").textContent = "Pausar Juego";
+            } 
+            else 
+            {
+                gamePaused = true;
+                document.getElementById("pauseButton").textContent = "Reanudar Juego";
+            }
+        }
+
+        document.addEventListener("keydown", function (event) 
+        {
+            if (!gamePaused) 
+            {
+                if (event.key === "ArrowLeft" && jugador.x > 0) 
+                {
+                    jugador.x -= jugador.speed;
+                }
+                if (event.key === "ArrowRight" && jugador.x + jugador.width < canvas.width) 
+                {
+                    jugador.x += jugador.speed;
+                }
+            }
+        });
+        document.getElementById("resetButton").addEventListener("click", startGame);
+        document.getElementById("startButton").addEventListener("click", startGame);
+        document.getElementById("pauseButton").addEventListener("click", pauseGame);
+
+        startGame();
+    </script>
+  </body>    
+</html>

@@ -7,24 +7,30 @@ const resetButton = document.getElementById('reset-button');
 let score = 0;
 let highscore = localStorage.getItem('highscore') || 0;
 let gameTimer;
-let gameDuration = 10; // Duración del juego en segundos
+let gameDuration = 500; 
 
-function updateScore() {
+function updateScore() 
+{
     scoreDisplay.textContent = score;
     highscoreDisplay.textContent = highscore;
 }
 
-function randomPosition() {
-    return Math.random() * (400 - 20);
+function randomPosition() 
+{
+    return Math.random() * (400 - 100);
 }
 
-function movePlayer(event) {
-    if (event.key === 'ArrowLeft') {
+function movePlayer(event) 
+{
+    if (event.key === 'ArrowLeft') 
+    {
         let left = parseFloat(player.style.left) || 0;
         left -= 10;
         left = Math.max(left, 0);
         player.style.left = `${left}px`;
-    } else if (event.key === 'ArrowRight') {
+    } 
+    else if (event.key === 'ArrowRight') 
+    {
         let left = parseFloat(player.style.left) || 0;
         left += 10;
         left = Math.min(left, 360);
@@ -32,7 +38,8 @@ function movePlayer(event) {
     }
 }
 
-function startGame() {
+function startGame() 
+{
     score = 0;
     updateScore();
     resetButton.disabled = true;
@@ -47,31 +54,37 @@ function startGame() {
 
         const coins = document.getElementsByClassName('coin');
 
-        for (let i = 0; i < coins.length; i++) {
+        for (let i = 0; i < coins.length; i++) 
+        {
             const coin = coins[i];
             let top = parseFloat(coin.style.top) || 0;
-            if (top < 400) {
-                top += 2; // Velocidad de caída de la moneda
+            if (top < 400) 
+            {
+                top += 2; 
                 coin.style.top = `${top}px`;
-
-                // Verificar si el jugador atrapa la moneda
-                if (top > 380 && Math.abs(parseFloat(coin.style.left) - parseFloat(player.style.left)) < 20) {
+        
+                if (top > 380 && Math.abs(parseFloat(coin.style.left) - parseFloat(player.style.left)) < 20) 
+                {
                     coin.remove();
                     score++;
                     updateScore();
                 }
-            } else {
+            } 
+            else 
+            {
                 coin.remove();
             }
         }
 
         gameDuration--;
-        if (gameDuration <= 0) {
+        if (gameDuration <= 0) 
+        {
             clearInterval(gameTimer);
             player.style.display = 'none';
             resetButton.disabled = false;
             startButton.disabled = false;
-            if (score > highscore) {
+            if (score > highscore) 
+            {
                 highscore = score;
                 localStorage.setItem('highscore', highscore);
             }
@@ -80,8 +93,9 @@ function startGame() {
     }, 1000 / 60);
 }
 
-function resetGame() {
-    gameDuration = 10;
+function resetGame() 
+{
+    gameDuration = 500;
     clearInterval(gameTimer);
     player.style.display = 'none';
     resetButton.disabled = true;
