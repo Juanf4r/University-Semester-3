@@ -1,0 +1,53 @@
+:root{
+    --widthPadre: 400px;
+}
+
+html{
+    font-size: 62.5%; 
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+.container{
+    width: var(--widthPadre);
+    height: 500px;
+
+    background-color: rgb(11, 11, 84);
+}
+
+.cuadrito{
+    width: 50px;
+    height: 50px;
+
+    background-color: green;
+    animation: cuadritoVueltas 1s linear forwards infinite alternate;
+}
+
+.container:hover .cuadrito{
+    animation-play-state: paused;
+}
+
+@keyframes cuadritoVueltas{
+    33%{
+        transform: translateY(450px);
+    }
+
+    50.5%{
+        background-color: lightblue;
+    }
+
+    66.6%{
+        transform: translate(calc(var(--widthPadre) - 50px), 450px);
+    }
+
+    100%{
+        transform:
+        translate(calc(var(--widthPadre) - 50px))
+        scale(2)
+        rotate(0.25turn);
+        background-color: tomato;
+    }
+
+}
