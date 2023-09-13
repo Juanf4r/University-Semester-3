@@ -4,38 +4,100 @@
 }
 
 html{
-    font-size: 62.5%; 
+    font-size: 62.5%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 body{
     font-size: 1.6rem;
 }
 
+h1{
+    font-size: 6.5rem;
+}
+
+h2{
+    font-size: 4rem;
+}
+
+.text{
+    font-size: 1.8rem;
+    padding: 10px;
+    font-style: oblique;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+
 .container{
     width: var(--widthPadre);
     height: var(--heightPadre);
-    border-color: black;
-    border-width: 10px;
-
-    background-color: rgb(11, 11, 84);
-    justify-content: center ;
+    border: 5px solid black; 
 }
 
-.cuadrito{
+.cuadrito2{
     width: 50px;
     height: 50px;
 
     background-color: green;
-    animation: cuadritoVueltas 1s linear forwards infinite alternate;
+    animation: cuadritoVueltas 2s linear forwards infinite alternate;
 }
 
-.container:hover .cuadrito{
+.container:hover .cuadrito2{
     animation-play-state: paused;
+}
+
+.cuadrito3{
+    width: 50px;
+    height: 50px;
+
+    background-color: red;
+    animation: cuadritoVueltas 2s linear forwards infinite alternate;
+}
+
+.container:hover .cuadrito3{
+    animation-play-state: paused;
+}
+
+.cuadrito4{
+    width: 50px;
+    height: 50px;
+
+    background-color: red;
+    animation: cuadritoVueltas 2s linear forwards infinite alternate;
+}   
+
+.container:hover .cuadrito4{
+    animation-play-state: paused;
+}
+
+
+.cuadrito6{
+    width: 50px;
+    height: 50px;
+
+    background-color: green;
+    animation: cuadritoVueltas 2s linear forwards infinite alternate;
+}
+
+.container:hover .cuadrito6{
+    animation-play-state: paused;
+}
+
+.btn8{
+
+}
+
+.container.btn8:hoover{
+
 }
 
 @keyframes cuadritoVueltas{
     33%{
-        transform: translateY(450px);
+        transform: translateY(calc(var(--heightPadre) - 50px) );
     }
 
     50.5%{
@@ -43,7 +105,7 @@ body{
     }
 
     66.6%{
-        transform: translate(calc(var(--widthPadre) - 50px), 450px);
+        transform: translateX(calc(var(--widthPadre) - 50px) );
     }
 
     100%{
