@@ -36,84 +36,93 @@ h2{
     width: var(--widthPadre);
     height: var(--heightPadre);
     border: 5px solid black; 
+    position: relative;
 }
 
-.cuadrito2{
+.efecto1{
+    opacity: 0;
+    animation: textoDifuminado 3.5s infinite;
+}
+
+.container:hover .efecto1{
+    animation-play-state: paused;
+}
+
+.efecto2{
     width: 50px;
     height: 50px;
-
     background-color: green;
-    animation: cuadritoVueltas 2s linear forwards infinite alternate;
+    position: relative;
+    top: 50%;
+    animation: cuadritoVueltas 3.5s infinite;
 }
 
-.container:hover .cuadrito2{
+.container:hover .efecto2{
     animation-play-state: paused;
 }
 
-.cuadrito3{
+.efecto3{
+    width: 60px;
+    height: 40px;
+    background-color: #b74924;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rectanguloAgrandar 500ms linear infinite;
+    animation-play-state: paused;
+}
+
+.container:hover .efecto3{
+    animation-play-state: running;
+}
+
+.efecto4{
     width: 50px;
     height: 50px;
-
-    background-color: red;
-    animation: cuadritoVueltas 2s linear forwards infinite alternate;
+    background-color: grey;
+    border-radius: 50%;
+    animation: circuloGirando 5s infinite;
 }
 
-.container:hover .cuadrito3{
-    animation-play-state: paused;
-}
-
-.cuadrito4{
-    width: 50px;
-    height: 50px;
-
-    background-color: red;
-    animation: cuadritoVueltas 2s linear forwards infinite alternate;
-}   
-
-.container:hover .cuadrito4{
-    animation-play-state: paused;
-}
-
-
-.cuadrito6{
-    width: 50px;
-    height: 50px;
-
-    background-color: green;
-    animation: cuadritoVueltas 2s linear forwards infinite alternate;
-}
-
-.container:hover .cuadrito6{
-    animation-play-state: paused;
-}
-
-.btn8{
-
-}
-
-.container.btn8:hoover{
-
+@keyframes textoDifuminado{
+    0%{
+        opacity: 0;
+        filter: blur(10);
+        transform: translateY(50px);
+    }
+    100%{
+        opacity:1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
 }
 
 @keyframes cuadritoVueltas{
-    33%{
-        transform: translateY(calc(var(--heightPadre) - 50px) );
-    }
-
-    50.5%{
-        background-color: lightblue;
-    }
-
-    66.6%{
-        transform: translateX(calc(var(--widthPadre) - 50px) );
-    }
-
     100%{
-        transform:
-        translate(calc(var(--widthPadre) - 50px))
-        scale(2)
-        rotate(0.25turn);
-        background-color: tomato;
+        transform: 
+        translateX(calc(var(--widthPadre) - 50px))
+        rotate(1.5turn);
     }
+}
 
+@keyframes rectanguloAgrandar{
+    0%{
+    opacity: 0;
+    transform: scale(1);
+    }
+    100%{
+        transform: scale(10);
+    }
+}
+
+@keyframes circuloGirando{
+    0%{
+        transform: 
+        rotate(0deg);
+    }
+    
+    100%{
+        transform: 
+        rotate(360deg);
+    }
 }
