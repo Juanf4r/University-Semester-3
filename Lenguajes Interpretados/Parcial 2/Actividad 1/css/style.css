@@ -1,6 +1,8 @@
 :root{
     --widthPadre: 600px;
     --heightPadre: 400px;
+    --rectanguloNaranja: #b74924;
+    --azulBoton: #218de2;
 }
 
 html{
@@ -54,7 +56,7 @@ h2{
     background-color: green;
     position: relative;
     top: 50%;
-    animation: cuadritoVueltas 3.5s infinite;
+    animation: cuadritoVueltas 3s infinite linear;
 }
 
 .container:hover .efecto2{
@@ -64,24 +66,53 @@ h2{
 .efecto3{
     width: 60px;
     height: 40px;
-    background-color: #b74924;
+    background-color: var(--rectanguloNaranja);
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: rectanguloAgrandar 500ms linear infinite;
-    animation-play-state: paused;
+    transition: all 1s;
+    transform: scale(0);
+    transition-timing-function: cubic-bezier(0.42, 0, 0.63, 1.48);
 }
 
 .container:hover .efecto3{
-    animation-play-state: running;
+    transform: scale(10);
 }
 
 .efecto4{
     width: 50px;
     height: 50px;
-    background-color: grey;
+    background-color: #e7e4ff;
+    border: 5px dashed #8a6fa1;
     border-radius: 50%;
-    animation: circuloGirando 5s infinite;
+    animation: circuloGirando 3s infinite linear;
+}
+
+.container:hover .efecto4{
+    animation-play-state: paused;
+}
+
+.btn1{
+    cursor: pointer;
+    width: 200px;
+    height: 60px;
+    border-radius: 5px;
+    font-size: 2.5rem;
+    padding: 10px;
+}
+
+.btn1:hover{
+    border-color: #b74924;
+    background-color: var(--azulBoton);
+    color: white;
+    border: 5px white dotted;
+}
+
+.efecto6{
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    animation: cuadradoRebote 4s infinite linear;
 }
 
 @keyframes textoDifuminado{
@@ -110,19 +141,50 @@ h2{
     opacity: 0;
     transform: scale(1);
     }
-    100%{
+    50%{
         transform: scale(10);
+    }
+    100%{
+        transform: scale(0);
     }
 }
 
 @keyframes circuloGirando{
     0%{
-        transform: 
-        rotate(0deg);
+        transform:
+        rotate(0deg)
+        translateX(50px);
     }
     
     100%{
         transform: 
-        rotate(360deg);
+        rotate(360deg)
+        translateX(50px);
+    }
+}
+
+@keyframes cuadradoRebote {
+    0%{
+        transform: 
+        translateY(0px)
+        translateX(0px);
+    }
+    
+    33%{
+        transform: 
+        translateY(350px)
+        translateX(200px);
+    }
+
+    66%{
+        transform: 
+        translateY(0px)
+        translateX(350px);
+    }
+
+    100%{
+        transform: 
+        translateY(350px)
+        translateX(550px);
     }
 }
