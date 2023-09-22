@@ -1,0 +1,11 @@
+#CuadradoMorado{
+    width: 300px;
+    font-size: medium;
+    height: 250px;
+    padding: 20px;
+    background-color: rgb(72, 61, 139);
+    border: 3px solid;
+    border-color: black;
+    float: right;
+    color: white;
+}

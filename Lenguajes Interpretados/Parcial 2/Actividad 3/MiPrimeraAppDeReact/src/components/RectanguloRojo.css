@@ -1,0 +1,40 @@
+#rectanguloRojo
+{
+    width: 500px;
+    font-size: medium;
+    height: 250px;
+    padding: 20px;
+    background-color: red;
+    border: 3px solid;
+    border-color: black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 30%;
+}
+
+#rectanguloAmarillo{
+    width: 400px;
+    font-size: medium;
+    height: 200px;
+    padding: 20px;
+    background-color: yellow;
+    border: 3px solid;
+    border-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#rectanguloAzul{
+    width: 300px;
+    font-size: medium;
+    height: 150px;
+    padding: 20px;
+    background-color: #90e4c4;
+    border: 3px solid;
+    border-color: blue;
+    border-radius: 10px;
+    color: black;
+}
