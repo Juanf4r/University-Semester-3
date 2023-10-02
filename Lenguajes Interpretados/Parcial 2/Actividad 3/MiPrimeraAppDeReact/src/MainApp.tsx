@@ -6,7 +6,8 @@ import ElementosVerde from "./components/ElementosVerde"
 import RectanguloRojo from "./components/RectanguloRojo"
 
 const MainApp = () => {
-    return(<>
+    return(
+    <>
     <Encabezado></Encabezado>
     <CuadradoVerde></CuadradoVerde>
     <Elementos></Elementos>
