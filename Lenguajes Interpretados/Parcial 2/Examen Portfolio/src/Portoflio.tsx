@@ -1,11 +1,12 @@
-import './css/Style.css' 
-import './css/normalize.css' 
-import './css/StyleSwitcher.css' 
-import './css/Skins/Color-1.css' 
-import './css/Skins/Color-2.css' 
-import './css/Skins/Color-3.css' 
-import './css/Skins/Color-4.css' 
-import './css/Skins/Color-5.css' 
+import './css/Style.css'
+import './css/Skins/Color-1.css'
+import './css/Skins/Color-2.css'
+import './css/Skins/Color-3.css'
+import './css/Skins/Color-4.css'
+import './css/Skins/Color-5.css'
+import './css/normalize.css'
+import './css/StyleSwitcher.css'
+
 
 function Portoflio() {
 return (
@@ -36,7 +37,7 @@ return (
                         <div className="row">
                             <div className="home-info padd-15">
                                 <h3 className="hello">Hello, my name is <span className="name">Juan Fernando Aispuro</span></h3>
-                                <h3 className="my-profession">I'm a <span className="typing"></span></h3>
+                                <h3 className="my-profession">I'm a <span className="typing">Software Engineer</span></h3>
                                 <p>I'm a Software Developer with extensive experience for over 2 years. My expertise is related to
                                 Game Development, Game Design, Software Development and many more...</p>
                                 <a href="https://drive.google.com/drive/folders/1Te8OojDhtpI-DQuM3wwI-YUzXRLTm3lj?usp=sharing" target="_blank" className="btn">See my CV</a>
@@ -308,7 +309,7 @@ return (
                                 <div className="portfolio-item-inner shadow-dark">
                                     <div className="portfolio-img">
                                         <a href="https://play.google.com/store/apps/details?id=com.Juanfer.Taptostream&hl=es_419&gl=US" target="_blank">
-                                            <img src="img/imagen1.png" alt=""></img>
+                                            <img src="public/img/imagen1.png" alt=""></img>
                                         </a>
                                     </div>
                                 </div>
@@ -454,7 +455,7 @@ return (
         </div>
         {/* <!-- ==== Main Container End ===== --> */}
         {/* <!-- ==== Style Switcher Start ==== --> */}
-        {/* <div className="style-switcher">
+        <div className="style-switcher">
             <div className="style-switcher-toggler s-icon">
                 <i className="fas fa-cog fa-spin"></i>
             </div>
@@ -463,13 +464,13 @@ return (
             </div>
             <h4>Theme Colors</h4>
             <div className="colors">
-                <span className="color-1" onclick={() => "setActiveStyle('color-1')"}></span>
+                {/* <span className="color-1" onclick={"setActiveStyle('color-1')"}></span>
                 <span className="color-2" onclick="setActiveStyle('color-2')"></span>
                 <span className="color-3" onclick="setActiveStyle('color-3')"></span>
                 <span className="color-4" onclick="setActiveStyle('color-4')"></span>
-                <span className="color-5" onclick="setActiveStyle('color-5')"></span>
+                <span className="color-5" onclick="setActiveStyle('color-5')"></span> */}
             </div>
-        </div> */}
+        </div>
         
         {/* <!-- ==== Style Switcher End ==== --> */}
     </div>
