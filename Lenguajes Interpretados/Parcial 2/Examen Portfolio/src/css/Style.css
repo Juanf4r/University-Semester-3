@@ -71,7 +71,7 @@ ul{
     }
 }
 .hidden{
-    
+    display: none !important;
 }
 .padd-15{
     padding-left: 15px;
