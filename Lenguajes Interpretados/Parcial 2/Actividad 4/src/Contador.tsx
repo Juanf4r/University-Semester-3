@@ -57,7 +57,7 @@ const Contador = () => {
     }
     })
 
-    return (
+return (
     <div>
         <h1 className="">CONTADOR</h1>
         <div className="contador">
@@ -71,7 +71,8 @@ const Contador = () => {
         <button onClick={suma}>+10</button>
         <button onClick={sumarMas}>+100</button><br/>
         <button onClick={resetear}>Reinicio</button>
-    </div>);
+    </div>
+    );
 };
 
 export default Contador ;
