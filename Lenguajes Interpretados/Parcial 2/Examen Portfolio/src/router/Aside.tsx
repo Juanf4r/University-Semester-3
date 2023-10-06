@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { AiFillLinkedin } from "react-icons/ai"
+import {AiFillGithub} from "react-icons/ai"
 
 const Aside = () => {
 return (
@@ -18,11 +20,13 @@ return (
                     <li><Link to={"/skills"}>Skills</Link></li>
                     <li><Link to={"/portfolio"}>Portfolio</Link></li>
                     <li><Link to={"/contact"}>Contact</Link></li>
-                    <li><Link to={"/SnakeGame"}>Secret</Link></li>
+                    <li><Link to={"/calculator"}>Secret</Link></li>
+                    <ul className="social">
+                        <li><a href="https://www.linkedin.com/in/juan-fernando-aispuro-sanchez-05008b224/" target="_blank"><AiFillLinkedin/></a></li>
+                        <li><a href="https://github.com/Juanf4r" target="_blank"><AiFillGithub/></a></li>
+                    </ul>
                 </ul>
-                <ul>
-                    {/* <li></li> Aqui van mis redes Sociales */}
-                </ul>
+                
             </div>
         </div>
     </body>

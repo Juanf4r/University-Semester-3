@@ -4,8 +4,8 @@ import Services from "../pages/Services"
 import Portfolio from "../pages/Portfolio"
 import Contact from "../pages/Contact"
 import Aside from "./Aside"
-import SnakeGame from "../pages/SnakeGame"
 import {Routes,Route} from 'react-router-dom'
+import Calculator from "../pages/Calculator"
 
 const AppRouter = () => {
 return (
@@ -18,7 +18,7 @@ return (
             <Route path="/skills" element={<Services/>}/>
             <Route path="/portfolio" element={<Portfolio/>}/>
             <Route path="/contact" element={<Contact/>}/>
-            <Route path="/SnakeGame" element={<SnakeGame/>}/>
+            <Route path="/calculator" element={<Calculator/>}/>
         </Routes>
     </>
 )}

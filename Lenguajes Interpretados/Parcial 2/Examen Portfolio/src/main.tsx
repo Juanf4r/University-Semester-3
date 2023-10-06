@@ -1,6 +1,7 @@
 import './css/Style.css'
-import './css/Skins/Color-1.css'
+import './css/Color-1.css'
 import './css/normalize.css'
+import './App.Style'
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'

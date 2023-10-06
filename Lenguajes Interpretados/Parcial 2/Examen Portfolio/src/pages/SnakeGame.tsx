@@ -1,7 +1,9 @@
 
 function SnakeGame() {
   return (
-    <div>SnakeGame</div>
+    <body className="dark">
+      <div>hola</div>
+    </body>
   )
 }
 

@@ -58,7 +58,7 @@ ul{
 .section.active{
     z-index: 2;
     opacity: 1;
-    animation: slideSection 1s ease;
+    /* animation: slideSection 1s ease; */
 }
 @keyframes slideSection{
     0%
@@ -261,10 +261,17 @@ ul{
     display: block;
     border-bottom: 1px solid var(--bg-black-50);
     color: var(--text-black-900);
-    padding: 5px 15px;;
+    padding: 5px 15px;
 }
-.aside .nav li a.active{
-    color: var(--skin-color);
+.aside .nav .social li a{
+    font-size: 2.2rem;
+    display: flex;
+    color: var(--text-black-900);
+    border-bottom: none;
+    padding: 0px 30px;
+}
+.aside .nav li a:hover{
+    color: var(--skin-color)
 }
 .aside .nav li a i{
     margin-right: 15px;
@@ -571,9 +578,12 @@ h3.my-profession{
     border: 6px solid var(--bg-black-100);
     border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
 }
 .portfolio .portfolio-item-inner .portfolio-img img{
+    width: 100%;
+    display: block;
+}
+.portfolio .portfolio-item-inner .portfolio-img img:hover{
     width: 100%;
     display: block;
 }
