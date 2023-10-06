@@ -25,7 +25,7 @@ function Calculator() {
     {
         setValue(eval(value).toString());
     }
-    } 
+} 
 
     const deleteValue = () => {
     if (value.slice(-1) === " ") 

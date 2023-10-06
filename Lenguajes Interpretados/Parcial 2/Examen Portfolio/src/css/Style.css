@@ -71,7 +71,7 @@ ul{
     }
 }
 .hidden{
-    display: none !important;
+    
 }
 .padd-15{
     padding-left: 15px;
@@ -250,6 +250,9 @@ ul{
 }
 .aside .nav{
     margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .aside .nav li{
     margin-bottom: 20px;
