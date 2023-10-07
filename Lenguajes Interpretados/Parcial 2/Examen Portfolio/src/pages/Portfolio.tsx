@@ -21,7 +21,6 @@ return (
                             <div className="portfolio-img">
                                 <img src="./img/imagen1.png" alt=""></img>
                                 <a href="https://play.google.com/store/apps/details?id=com.Juanfer.Taptostream&hl=es_419&gl=US" target="_blank">
-                                    
                                     <img src="./img/Google Play Store.png" alt=""></img>
                                 </a>
                             </div>
