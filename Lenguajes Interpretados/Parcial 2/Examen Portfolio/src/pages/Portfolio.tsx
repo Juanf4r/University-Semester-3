@@ -19,10 +19,10 @@ return (
                     <div className="portfolio-item padd-15">
                         <div className="portfolio-item-inner shadow-dark">
                             <div className="portfolio-img">
-                                <img src="public/img/imagen1.png" alt=""></img>
+                                <img src="./img/imagen1.png" alt=""></img>
                                 <a href="https://play.google.com/store/apps/details?id=com.Juanfer.Taptostream&hl=es_419&gl=US" target="_blank">
                                     
-                                    <img src="public/img/Google Play Store.png" alt=""></img>
+                                    <img src="./img/Google Play Store.png" alt=""></img>
                                 </a>
                             </div>
                         </div>

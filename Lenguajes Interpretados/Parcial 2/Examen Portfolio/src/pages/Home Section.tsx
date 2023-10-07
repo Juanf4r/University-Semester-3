@@ -13,7 +13,7 @@ return (
                             <a href="https://drive.google.com/drive/folders/1Te8OojDhtpI-DQuM3wwI-YUzXRLTm3lj?usp=sharing" target="_blank" className="btn">See my CV</a>
                         </div>
                         <div className="home-img padd-15">
-                            <img src="public/img/hero.jpg" alt=""></img>
+                            <img src="./img/hero.jpg" alt=""></img>
                         </div>
                     </div>
                 </div>
