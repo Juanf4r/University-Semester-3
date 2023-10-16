@@ -61,26 +61,34 @@ function doThreeJS(){
   cube4.position.z = 2;
 
   const cube5g = new THREE.BoxGeometry( 1, 1, 1 );
-  const cube5m = new THREE.MeshPhongMaterial( { color: 'red' } );  
+  const cube5m = new THREE.MeshPhongMaterial( { color: 'white' } );  
   const cube5 = new THREE.Mesh( cube5g, cube5m );
-  cube4.castShadow = true;
+  cube5.castShadow = true;
   scene.add(cube5);
   cube5.position.y = -1;
   cube5.position.z = 2;
 
   const cube6g = new THREE.BoxGeometry( 1, 1, 1 );
-  const cube6m = new THREE.MeshPhongMaterial( { color: 'red' } );  
+  const cube6m = new THREE.MeshPhongMaterial( { color: 'green' } );  
   const cube6 = new THREE.Mesh( cube6g, cube6m );
-  cube4.castShadow = true;
+  cube6.castShadow = true;
   scene.add(cube6);
-  cube5.position.y = -3;
-  cube5.position.z = 2;
+  cube6.position.y = -3;
+  cube6.position.z = 2;
+
+  const cube7g = new THREE.BoxGeometry( 1, 1, 1 );
+  const cube7m = new THREE.MeshPhongMaterial( { color: 'purple' } );  
+  const cube7 = new THREE.Mesh( cube7g, cube7m );
+  cube7.castShadow = true;
+  scene.add(cube7);
+  cube7.position.y = -5;
+  cube7.position.z = -1;
 
   const planeG = new THREE.PlaneGeometry(20,20,10,10);
   const planeM = new THREE.MeshStandardMaterial({color: 'darkgray', wireframe:false, side: THREE.DoubleSide});
   const plane = new THREE.Mesh(planeG,planeM);
   plane.rotateX(90 * (Math.PI/180));
-  plane.position.y =-5;
+  plane.position.y =-7;
   scene.add(plane);
   plane.receiveShadow = true;
 
@@ -173,6 +181,15 @@ window.addEventListener('click',function(e)
           else
           {
             cube.attach(cube6);
+          }
+
+          if(cube7.parent === cube)
+          {
+            scene.attach(cube7);
+          }
+          else
+          {
+            cube.attach(cube7);
           }
         }
       }
