@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { Wireframe } from 'three/examples/jsm/lines/Wireframe.js';
 import * as dat from "dat.gui";
+import { func } from 'three/examples/jsm/nodes/Nodes.js';
 
 
 function doThreeJS(){
@@ -64,6 +65,20 @@ function doThreeJS(){
   scene.add( cube2 );
   cube2.position.y = -2;
 
+  const cube3g = new THREE.BoxGeometry( 1, 1, 1 );
+  const cube3m = new THREE.MeshPhongMaterial( { color: 'blue' } );  
+  const cube3 = new THREE.Mesh( cube3g, cube3m );
+  cube3.castShadow = true;
+  scene.add(cube3);
+  cube3.position.y = 3;
+
+  const cube4g = new THREE.BoxGeometry( 1, 1, 1 );
+  const cube4m = new THREE.MeshPhongMaterial( { color: 'red' } );  
+  const cube4 = new THREE.Mesh( cube4g, cube4m );
+  cube4.castShadow = true;
+  scene.add(cube4);
+  cube4.position.y = 5;
+
   const planeG = new THREE.PlaneGeometry(20,20,10,10);
   const planeM = new THREE.MeshStandardMaterial({color: 'darkgray', wireframe:false, side: THREE.DoubleSide});
   const plane = new THREE.Mesh(planeG,planeM);
@@ -99,15 +114,59 @@ function doThreeJS(){
   //Raycaster
   const mousePosition = new THREE.Vector2();
 
-  window.addEventListener('mousemove',function(e){
-    //mousePosition.x = (e.clientX/window.innerWidth) *
-    //mousePosition.y = - (e.clientY / window.innerHeight);
-  })
+  // window.addEventListener('mousemove',function(e){
+  //   mousePosition.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+  //   mousePosition.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
+  // }) 
+
 
   const raycaster = new THREE.Raycaster();
+
+  window.addEventListener('click',function(e){
+    mousePosition.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+    mousePosition.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
+
+    raycaster.setFromCamera(mousePosition,camera);
+    const objects = raycaster.intersectObjects(scene.children);
+
+    for(let i = 0; i <objects.length; i++)
+    {
+      if(objects[i].object.id === cubeId)
+      {
+        if(cube2.parent === scene)
+        {
+          cube.attach(cube2);
+        }
+        else if(cube2.parent === cube)
+        {
+          scene.attach(cube2);
+        }
+
+        if(cube3.parent === scene)
+        {
+          cube.attach(cube3);
+        }
+        else if(cube3.parent === cube)
+        {
+          scene.attach(cube3);
+        }
+
+        if(cube4.parent === scene)
+        {
+          cube.attach(cube4);
+        }
+        else if(cube4.parent === cube)
+        {
+          scene.attach(cube4);
+        }
+        
+      }
+    }
+  })
+
   let loaded = false;
   setTimeout(()=>{
-    cube.attach(cube2);
+    //cube.attach(cube2);   
     loaded = true
   },1000)
 
@@ -122,24 +181,23 @@ function doThreeJS(){
     sLight.angle = options.angulo;
     sLight.penumbra = options.penumbra;
     sLight.intensity = options.intensidad;
-    sLightH.update();
+    //sLightH.update();
 
     if(loaded)
     {
-      raycaster.setFromCamera(mousePosition,camera);
-      const objects = raycaster.intersectObjects(scene.children);
+      // raycaster.setFromCamera(mousePosition,camera);
+      // const objects = raycaster.intersectObjects(scene.children);
 
-      for(let i = 0; i <objects.length; i++)
-      {
-        if(objects[i].object.id === cubeId)
-        {
-          console.log("Uwu",i);
-          console.log(cube2.parent);
-          //scene.add(cube2); //Se vuelve a hacer hijo de la escena, manteniendo la transformacion relativa del pade anterior (cubo gris)
-          //cube2.removeFromParent() //Borra el vinculo al objeto y a la escena
-          scene.attach(cube2); //Reañadimos a la escena con su transform global
-        }
-      }
+      // for(let i = 0; i <objects.length; i++)
+      // {
+      //   if(objects[i].object.id === cubeId)
+      //   {
+      //     //scene.add(cube2); //Se vuelve a hacer hijo de la escena, manteniendo la transformacion relativa del pade anterior (cubo gris)
+      //     //cube2.removeFromParent() //Borra el vinculo al objeto y a la escena
+      //     scene.attach(cube2); //Reañadimos a la escena con su transform global
+
+      //   }
+      // }
     }
 	  controls.update();
     renderer.render( scene, camera );
