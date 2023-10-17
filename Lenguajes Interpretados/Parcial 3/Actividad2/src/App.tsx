@@ -1,9 +1,9 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-//import { Wireframe } from 'three/examples/jsm/lines/Wireframe.js';
-//import * as dat from "dat.gui";
-//import { func } from 'three/examples/jsm/nodes/Nodes.js';
+import { Wireframe } from 'three/examples/jsm/lines/Wireframe.js';
+import * as dat from "dat.gui";
+import { func } from 'three/examples/jsm/nodes/Nodes.js';
 
 
 function doThreeJS(){
@@ -92,33 +92,18 @@ function doThreeJS(){
   scene.add(plane);
   plane.receiveShadow = true;
 
+
+  const cubeId1 = cube.id;
+  const cubeId2 = cube2.id;
+  const cubeId3 = cube3.id;
+  const cubeId4 = cube4.id;
+  const cubeId5 = cube5.id;
+  const cubeId6 = cube6.id;
+  const cubeId7 = cube7.id;
   camera.position.z = 5;
 
   const clock = new THREE.Clock();
   let time;
-
-  // const gui = new dat.GUI();
-  // const options = {
-  //   intensidad: 500,
-  //   angulo: (Math.PI/2)/2,
-  //   penumbra: 0.5,
-  //   color: 0xffff00,
-  //   wireframe: false
-  // }
-
-  // gui.add(options,'intensidad',0,1000);
-  // gui.add(options,'angulo',0, Math.PI/2);
-  // gui.add(options,'penumbra',0,1);
-  // gui.add(options,'wireframe',0,1).onChange((e)=>{
-  //   cube2.material.wireframe = e;
-  // })
-  // gui.addColor(options,'color').onChange((evento)=>{
-  //   cube2.material.color.set(evento);
-  // })
-  // window.addEventListener('mousemove',function(e){
-  //   mousePosition.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-  //   mousePosition.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
-  // }) 
 
   //Raycaster
   const mousePosition = new THREE.Vector2();
@@ -133,65 +118,91 @@ window.addEventListener('click',function(e)
     {
       raycaster.setFromCamera(mousePosition,camera);
       const objects = raycaster.intersectObjects(scene.children);
-
       for(let i = 0; i <objects.length; i++)
       {
-        if(objects[i].object.id === cubeId)
-        {
-          if(cube2.parent === cube)
+          if(objects[i].object.id === cubeId1)
           {
-            scene.attach(cube2);
-          }
-          else
-          {
-            cube.attach(cube2);
-          }
-
-          if(cube3.parent === cube)
-          {
-            scene.attach(cube3);
-          }
-          else
-          {
-            cube.attach(cube3);
+            if(cube.parent === cube)
+            {
+              scene.attach(cube);
+            }
+            else
+            {
+              cube.attach(cube);
+            }
           }
 
-          if(cube4.parent === cube)
+          if(objects[i].object.id === cubeId2)
           {
-            scene.attach(cube4);
-          }
-          else
-          {
-            cube.attach(cube4);
-          }
-
-          if(cube5.parent === cube)
-          {
-            scene.attach(cube5);
-          }
-          else
-          {
-            cube.attach(cube5);
+            if(cube2.parent === cube)
+            {
+              scene.attach(cube2);
+            }
+            else
+            {
+              cube.attach(cube2);
+            }
           }
 
-          if(cube6.parent === cube)
+          if(objects[i].object.id === cubeId3)
           {
-            scene.attach(cube6);
-          }
-          else
-          {
-            cube.attach(cube6);
+            if(cube3.parent === cube)
+            {
+              scene.attach(cube3);
+            }
+            else
+            {
+              cube.attach(cube3);
+            }
           }
 
-          if(cube7.parent === cube)
+          if(objects[i].object.id === cubeId4)
           {
-            scene.attach(cube7);
+            if(cube4.parent === cube)
+            {
+              scene.attach(cube4);
+            }
+            else
+            {
+              cube.attach(cube4);
+            }
           }
-          else
+
+          if(objects[i].object.id === cubeId5)
           {
-            cube.attach(cube7);
+            if(cube5.parent === cube)
+            {
+              scene.attach(cube5);
+            }
+            else
+            {
+              cube.attach(cube5);
+            }
           }
-        }
+
+          if(objects[i].object.id === cubeId6)
+          {
+            if(cube6.parent === cube)
+            {
+              scene.attach(cube6);
+            }
+            else
+            {
+              cube.attach(cube6);
+            }
+          }
+
+          if(objects[i].object.id === cubeId7)
+          {
+            if(cube7.parent === cube)
+            {
+              scene.attach(cube7);
+            }
+            else
+            {
+              cube.attach(cube7);
+            }
+          }
       }
     }
 })
@@ -201,9 +212,6 @@ window.addEventListener('click',function(e)
     //cube.attach(cube2);   
     loaded = true
   },1000)
-
-  cube2.name = "Cubo2";
-  const cubeId = cube2.id;
 
   function animate() {
     requestAnimationFrame( animate );
