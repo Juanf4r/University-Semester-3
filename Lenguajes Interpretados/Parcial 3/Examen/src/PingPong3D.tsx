@@ -9,18 +9,18 @@ function doThree(){
   const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
   const listener = new THREE.AudioListener();
-  const music = new THREE.Audio(listener);
   const audioLoader = new THREE.AudioLoader();
-
+  
   const ballHitSound = new THREE.Audio(listener);
-  audioLoader.load('public/audio/sonidoPow.mp3',function(buffer)
+  audioLoader.load('audio/sonidoPow.mp3',function(buffer)
   {
     ballHitSound.setBuffer(buffer);
     ballHitSound.setLoop(false);
-    ballHitSound.setVolume(.5);
+    ballHitSound.setVolume(.5); 
   })
-
-  audioLoader.load('public/audio/musicLoop.mp3',function(buffer)
+  
+  const music = new THREE.Audio(listener);
+  audioLoader.load('audio/musicLoop.mp3',function(buffer)
   {
     music.setBuffer(buffer);
     music.setLoop(true);
@@ -32,8 +32,12 @@ function doThree(){
   camera.position.set(10,15,-30);
 
   const light = new THREE.DirectionalLight(0xffffff,0.6);
-  light.position.set(0,20,0);
+  light.position.set(0,35,0);
   scene.add(light);
+  light.shadow.camera.top = 12.5;
+  light.shadow.camera.bottom = -12.5;
+  light.shadow.camera.left = 25; 
+  light.shadow.camera.right = -25; 
   light.castShadow = true;
   
   const ambientLight = new THREE.AmbientLight(0x99aaff,1);
@@ -60,7 +64,7 @@ function doThree(){
   const loader = new RGBELoader();
 
   loader.load(
-    'public/environments/colorful_studio_2k.hdr',
+    '/environments/colorful_studio_2k.hdr',
     function(texture)
     {
       texture.mapping = THREE.EquirectangularRefractionMapping;
@@ -70,7 +74,7 @@ function doThree(){
 
   const jpgloader = new THREE.TextureLoader();
   jpgloader.load(
-    'public/environments/colorful_studio.jpg',
+    'environments/colorful_studio.jpg',
     (texture) => 
     {
       texture.mapping = THREE.EquirectangularRefractionMapping;
@@ -180,6 +184,7 @@ function doThree(){
       color: 0xff0000,
     })
   const ball = new THREE.Mesh(sphereG,sphereM);
+  ball.castShadow = true;
   ball.position.set(0,12.5,0);
   
   scene.add(sueloMesh);
@@ -190,35 +195,12 @@ function doThree(){
   scene.add(racketIA);
   scene.add(ball);
 
-  let ballSpeedX = .2;
+  let ballSpeedX = .1;
   let ballSpeedY = .1;
-  let ballSpeedZ = .3;
-  let racketSpeed = 0.1;
+  let ballSpeedZ = .1;
 
-  function animateBall()
+  function checkCollision() 
   {
-    ball.position.x += ballSpeedX;
-    ball.position.y += ballSpeedY;
-    ball.position.z += ballSpeedZ;
-
-    if (ball.position.x >= 30)
-    {
-      ball.position.set(0,12.5,0); 
-      jugadorPuntaje ++; 
-      if(jugadorPuntaje > jugadorPuntajeMax)
-      {
-        jugadorPuntajeMax = jugadorPuntaje;
-        localStorage.setItem('jugadorPuntajeMax',jugadorPuntajeMax.toString());
-      }
-      localStorage.setItem('jugadorPuntaje', jugadorPuntaje.toString());
-    }
-  
-    if(ball.position.x <= -30) 
-    {
-      ball.position.set(0,12.5,0); 
-      iaPuntaje ++;
-    }
-
     if (ball.position.y >= 23.5 || ball.position.y <= 2.5) 
     {
       ballHitSound.play();
@@ -230,35 +212,76 @@ function doThree(){
       ballHitSound.play();
       ballSpeedZ *= -1;
     }
-  
-    if(ball.position.z <= racket.position.z && ball.position.x >= racket.position.x - 0.1 && ball.position.x <= racket.position.x + 0.1) 
-    {
-      ballHitSound.play();
-      ballSpeedZ *= -1;
-    }
 
-    if(ball.position.z <= racketIA.position.z && ball.position.x >= racketIA.position.x - 0.1 && ball.position.x <= racketIA.position.x + 0.1) 
+    if(
+      ball.position.x >= racket.position.x - 4.5 / 2 &&
+      ball.position.x <= racket.position.x + 4.5 / 2 &&
+      ball.position.y >= racket.position.y - 4.5 / 2 &&
+      ball.position.y <= racket.position.y + 4.5 / 2 ) 
     {
       ballHitSound.play();
-      ballSpeedZ *= -1;
+      ballSpeedY *= -1;
+      ballSpeedX *= -1;
     }
-    moveRacketIA();
+    else if(
+      ball.position.x >= racketIA.position.x - 4.5 / 2 &&
+      ball.position.x <= racketIA.position.x + 4.5 / 2 &&
+      ball.position.y >= racketIA.position.y - 4.5 / 2 &&
+      ball.position.y <= racketIA.position.y + 4.5 / 2 ) 
+    {
+      ballHitSound.play();
+      ballSpeedY *= -1;
+      ballSpeedX *= -1;
+    }
   }
 
   function moveRacketIA() 
   {
     if (racketIA.position.y > ball.position.y) 
-    {racketIA.position.y -= racketSpeed;} 
+    {racketIA.position.y -= 0.4;} 
 
     else if (racketIA.position.y < ball.position.y) 
-    {racketIA.position.y += racketSpeed;}
+    {racketIA.position.y += 0.4;}
 
     if (racketIA.position.z > ball.position.z) 
-    {racketIA.position.z -= racketSpeed;} 
+    {racketIA.position.z -= 0.4;} 
 
     else if (racketIA.position.z < ball.position.z) 
-    {racketIA.position.z += racketSpeed;}
+    {racketIA.position.z += 0.4;}
   }
+
+  function animateBall()
+  {
+    ball.position.x += ballSpeedX;
+    ball.position.y += ballSpeedY;
+    ball.position.z += ballSpeedZ;
+
+    checkCollision();
+    moveRacketIA();
+
+    if (ball.position.x >= 30)
+    {
+      ball.position.set(0,12.5,0); 
+      iaPuntaje ++;
+      puntajeIA.textContent = "AI Score: " + iaPuntaje.toString();
+    }
+  
+    if(ball.position.x <= -30) 
+    {
+      ball.position.set(0,12.5,0); 
+      jugadorPuntaje++;
+      puntaje.textContent = "Score: " + jugadorPuntaje.toString();
+      if(jugadorPuntaje > jugadorPuntajeMax)
+      {
+        jugadorPuntajeMax = jugadorPuntaje;
+        puntajeMax.textContent = "Highscore: " + jugadorPuntajeMax.toString();
+        localStorage.setItem('jugadorPuntajeMax',jugadorPuntajeMax.toString());
+      }
+      localStorage.setItem('jugadorPuntaje', jugadorPuntaje.toString());
+    }
+  }
+
+  //--------------------------UPDATE DEL JUEGO--------------------------//
 
   function animate() 
   {
@@ -268,17 +291,34 @@ function doThree(){
     renderer.render( scene, camera );
     requestAnimationFrame( animate );
   }
+  window.addEventListener("keydown",(e)=>
+  {
+    if(e.key === 'w' || e.key === 'W')
+    {
+      racket.position.y += 0.5;
+    }
+
+    if(e.key === 's' || e.key === 'S')
+    {
+      racket.position.y -= 0.5;
+    }
+
+    if(e.key === 'a' || e.key === 'A')
+    {
+      racket.position.z += 0.5;
+    }
+
+    if(e.key === 'd' || e.key === 'D')
+    {
+      racket.position.z -= 0.5;
+    }
+  })
 
   window.addEventListener( 'resize', onWindowResize, false );
   
   function onWindowResize()
-  {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-
-    controls.update();
-    renderer.setSize( window.innerWidth, window.innerHeight);
-  }
+  {camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+  controls.update(); renderer.setSize( window.innerWidth, window.innerHeight);}
   animate();
 }
 
