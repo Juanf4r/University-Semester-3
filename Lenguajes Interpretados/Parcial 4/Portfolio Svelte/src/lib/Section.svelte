@@ -1,3 +1,7 @@
+<script>
+    import app from "../css/app.css"
+</script>
+
 <section class="home active section" id="home">
     <div class="container">
         <div class="row">
