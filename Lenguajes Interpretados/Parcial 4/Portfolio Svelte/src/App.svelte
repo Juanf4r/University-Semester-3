@@ -5,8 +5,7 @@
     import Services from './lib/Services.svelte';
     import Portfolio from './lib/Portfolio.svelte';
     import Contact from './lib/Contact.svelte';
-    import color from "./css/skins/color-1.css"
-    import appcss from "./css/app.css"
+    import appcss from "./css/skins/color-1.css";
 </script>
 
 <main>
