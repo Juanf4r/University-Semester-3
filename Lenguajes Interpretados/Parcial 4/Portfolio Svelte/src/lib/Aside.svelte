@@ -1,6 +1,8 @@
 <script>
     import Section from "./Section.svelte";
-    //import {Router, Route, Link} from "svelte-routing";
+    import Router from 'svelte-spa-router' 
+    import {push} from 'svelte-spa-router'
+    import routes from '../routes.js'
     import Home from "./Section.svelte";
     import About from "./AboutSection.svelte";
     import Services from "./Services.svelte";
@@ -22,16 +24,14 @@
             <li><Link to ="/skills"><i class="fa fa-list"></i>Skills</Link></li>
             <li><Link to ="/portfolio"><i class="fa fa-briefcase"></i>Portfolio</Link></li>
             <li><Link to ="/contact"><i class="fa fa-comments"></i>Contact</Link></li> -->
+            <li><button on:click={()=>push("/")}  class="active"><i class="fa fa-home"></i> Home</button></li>
+            <li><button on:click={()=>push("/about")} ><i class="fa fa-user"></i> About</button></li>
+            <li><button on:click={()=>push("/skills")}><i class="fa fa-list"></i>Skills</button></li>
+            <li><button on:click={()=>push("/portfolio")}><i class="fa fa-briefcase"></i>Portfolio</button></li>
+            <li><button on:click={()=>push("/contact")}><i class="fa fa-comments"></i>Contact</button></li>
         </nav>
     </ul>
 
-    <!-- <Router>
-        <Route path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/skills" component={Services} />
-        <Route path="/portfolio" component={Portfolio} />
-        <Route path="/contact" component={Contact} />
-    </Router> -->
-
+    <Router {routes} />
 
 </div>
