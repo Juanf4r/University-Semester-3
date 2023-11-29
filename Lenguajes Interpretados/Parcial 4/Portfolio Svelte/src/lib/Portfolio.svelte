@@ -34,6 +34,17 @@
                     </div>
                 </div>
             </div>
+            <div class="portfolio-item padd-15">
+                <h2 class="title">Forgotten Sins!</h2>
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img">
+                        <a href="https://juanf4r-dev.itch.io/forgotten-sins" target="_blank" tabIndex="0">
+                            <img src="/Kendrick.avif" alt="">
+                            <img class="bn45" src= "/itch.svg" alt="bn45"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <!-- ===== portfolio item End =====-->
             <!-- ===== portfolio item Start =====-->
             <!--<div class="portfolio-item padd-15">

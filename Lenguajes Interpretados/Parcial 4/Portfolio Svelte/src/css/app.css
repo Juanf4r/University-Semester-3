@@ -681,30 +681,30 @@ h3.my-profession{
 }
 @media (max-width: 1199px){
     .section .container{
-        padding-top: 70px;
+        
     }
     .aside{
-        left: -270px;
+        
     }
     .aside.open{
-        left: 0;
+        
     }
     .aside .nav-toggler{
         display: flex;
-        left: 30px;
+        
     }
     .aside .nav-toggler.open{
-        left: 300px;
+        
     }
     .section{
-        left: 0;
+        
     }
     .section.open{
-        left: 270px;
+        
     }
     .about .about-content .personal-info .info-item p span{
         display: block;
-        margin-left: 0;
+        
     }
 }
 @media (max-width: 991px){
