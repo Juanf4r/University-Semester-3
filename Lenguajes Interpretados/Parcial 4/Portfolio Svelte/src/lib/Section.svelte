@@ -2,7 +2,7 @@
     import app from "../css/app.css"
 </script>
 
-<section class="home active section" id="home">
+<section class="home section" id="home">
     <div class="container">
         <div class="row">
             <div class="home-info padd-15">

@@ -17,7 +17,7 @@
                 </div>
                 <div class="row">
                     <div class="personal-info padd-15">
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="info-item padd-15">
                                 <p>Birtday : <span>04 sep 2004</span></p>
                             </div>
@@ -42,7 +42,7 @@
                             <div class="info-item padd-15">
                                 <p>Freelance : <span>Available</span></p>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <div class="row">
                             <div class="buttons padd-15">
@@ -71,12 +71,12 @@
                     </div> -->
                 </div>
                 <div class="row">
-                    <div class="education padd-15">
+                    <!-- <div class="education padd-15">
                         <h3 class="title">Education</h3>
                         <div class="row">
                             <div class="timeline-box padd-15">
                                 <div class="timeline shadow-dark">
-                                    <!-- ===== timeline item ===== -->
+                                    
                                     <div class="timeline-item">
                                         <div class="circle-dot"></div>
                                             <h3 class="timeline-date">
@@ -93,7 +93,7 @@
                                             <h4 class="timeline-title">Degree on Interactive Software Development and Videogames</h4>
                                             <p class="timeline-text">Universidad Amerike, ubicated in Zapopan, Jalisco, Mexico</p>
                                     </div>
-                                    <!-- <div class="timeline-item">
+                                    <div class="timeline-item">
                                         <div class="circle-dot"></div>
                                             <h3 class="timeline-date">
                                                 <i class="fa fa-calendar"></i> 2013-2015
@@ -102,11 +102,11 @@
                                             <p class="timeline-text">Lorem ipsum dolor sit amet consectetur 
                                             adipisicing elit. Id porro ad placeat deserunt? Sint, accusamus 
                                             eveniet nostrum harum corporis dolores enim blanditiis iure iusto mollitia?</p>
-                                    </div>-->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="experience padd-15">
                         <!-- <h3 class="title">Experience</h3> -->
                         <!-- <div class="row">

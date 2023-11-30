@@ -22,7 +22,7 @@
     }
     
     .logo{
-        color: #ec1839;
+        color: #005fd5;
         font-weight: 800;
     }
     .aside{
@@ -65,8 +65,8 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    border-bottom: 5px solid #ec1839;
-    border-left: 5px solid #ec1839;
+    border-bottom: 5px solid #005fd5;
+    border-left: 5px solid #005fd5;
     bottom: 0;
     left: 0;
 }
@@ -75,21 +75,21 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    border-top: 5px solid #ec1839;
-    border-right: 5px solid #ec1839;
+    border-top: 5px solid #005fd5;
+    border-right: 5px solid #005fd5;
     top: 0;
     right: 0;
 }
 .aside .nav-toggler{
     height: 40px;
     width: 45px;
-    border: 1px solid #ec1839;
+    border: 1px solid #005fd5;
     cursor: pointer;
     position: fixed;
     left: 300px;
     top: 20px;
     border-radius: 5px;
-    background: #ec1839;
+    background: #005fd5;
     display: none;
     align-items: center;
     justify-content: center;
@@ -98,7 +98,7 @@
 .aside .nav-toggler span{
     height: 2px;
     width: 18px;
-    background: #ec1839;
+    background: #005fd5;
     display: inline-block;
     position: relative;
 }
@@ -109,7 +109,7 @@
     content: '';
     height: 2px;
     width: 18px;
-    background: #ec1839;
+    background: #005fd5;
     position: absolute;
     top: -6px;
     left: 0;
@@ -122,7 +122,7 @@
     content: '';
     height: 2px;
     width: 18px;
-    background: #ec1839;
+    background: #005fd5;
     position: absolute;
     top: 6px;
     left: 0;
@@ -154,12 +154,31 @@
     padding: 0px 30px;
 }
 .aside .nav li a:hover{
-    color: #ec1839;
+    color: #005fd5;
 
 }
 .aside .nav li a i{
     margin-right: 15px;
     cursor: cell;
+}
+
+@media (max-width: 1199px){
+    .aside{
+        left: -40px;
+    }
+    .aside.open{
+        left: 0;
+    }
+    .aside .nav-toggler{
+        display: flex;
+    }
+    .section{
+        left: 200px;
+    }
+    .about .about-content .personal-info .info-item p span{
+        display: block;
+        margin-left: 0;
+    }
 }
 </style>
 

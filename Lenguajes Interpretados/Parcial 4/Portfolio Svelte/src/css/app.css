@@ -14,11 +14,11 @@ html{
     font-size: 62.5%;
 }
 body.dark{
-    --bg-black-900:#151515;
-    --bg-black-100:#222222;
+    --bg-black-900:#f5f5f7;
+    --bg-black-100:#F1F1F1;
     --bg-black-50:#393939;
-    --text-black-900:#ffffff;
-    --text-black-700: #e9e9e9;
+    --text-black-900:#000000;
+    --text-black-700: #0E0E0E;
 }
 body{
     line-height: 1.5;
@@ -33,7 +33,7 @@ body{
     box-sizing: border-box;
 }
 ::before,::after{
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 ul{
     list-style: none;
@@ -49,18 +49,18 @@ ul{
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 0;
+    z-index: 0; 
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: hidden;   
     transition: all 0.3s ease;
 }
 .section.back-section{
-    z-index: 1;
-}
-.section.active{
-    z-index: 2;
-    opacity: 1;
-    animation: slideSection 1s ease;
+    /* z-index: 1;*/
+} 
+.section.active{    
+    /* z-index: 2;
+    opacity: 1; 
+    animation: slideSection 1s ease; */
 }
 @keyframes slideSection{
     0%
@@ -73,7 +73,7 @@ ul{
     }
 }
 .hidden{
-    display: none !important;
+    display: none !important; 
 }
 .padd-15{
     padding-left: 15px;
@@ -635,7 +635,6 @@ h3.my-profession{
 
 .contact .contact-info-item .links:hover{
     text-decoration: underline;
-
 }
 .contact .contact-info-item p{
     font-size: 1.6rem;
@@ -681,30 +680,14 @@ h3.my-profession{
 }
 @media (max-width: 1199px){
     .section .container{
-        
-    }
-    .aside{
-        
-    }
-    .aside.open{
-        
-    }
-    .aside .nav-toggler{
-        display: flex;
-        
-    }
-    .aside .nav-toggler.open{
-        
+        padding-top: 0px;
     }
     .section{
-        
-    }
-    .section.open{
-        
+        left: 180px;
     }
     .about .about-content .personal-info .info-item p span{
         display: block;
-        
+        margin-left: 0;
     }
 }
 @media (max-width: 991px){
@@ -735,6 +718,7 @@ h3.my-profession{
         flex: 0 0 100%;
         max-width: 100%;
     }  
+    
 }
 .footer{
     color: var(--skin-color);
